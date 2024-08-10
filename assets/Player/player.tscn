@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://05u0yh7kwb33"]
+
+[ext_resource type="Script" path="res://assets/Player/player.gd" id="1_g4ap3"]
+[ext_resource type="Texture2D" uid="uid://ghmpv882j6hy" path="res://assets/mainCharacter/Aldolf_Cuak-Sin_casco.png" id="1_h3n0r"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_32r5r"]
+radius = 6.0
+height = 24.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_g4ap3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_h3n0r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_32r5r")
