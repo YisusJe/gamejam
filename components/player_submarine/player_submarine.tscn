@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8e0enym4m2vk"]
+
+[ext_resource type="Script" path="res://components/player_submarine/player_submarine.gd" id="1_4dmpj"]
+[ext_resource type="Texture2D" uid="uid://b3guan1uyewu1" path="res://assets/yo.png" id="1_8ghdw"]
+[ext_resource type="PackedScene" uid="uid://dsvm66y1imygc" path="res://components/submarine_flashlight/submarine_flashlight.tscn" id="3_ycmfj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uqfe3"]
+radius = 9.0
+height = 20.0
+
+[node name="PlayerSubmarine" type="CharacterBody2D"]
+script = ExtResource("1_4dmpj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.257143, 0.29529)
+texture = ExtResource("1_8ghdw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_uqfe3")
+
+[node name="SubmarineFlashlight" parent="." instance=ExtResource("3_ycmfj")]
