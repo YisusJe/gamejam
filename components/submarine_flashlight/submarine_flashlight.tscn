@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsvm66y1imygc"]
+
+[ext_resource type="Texture2D" uid="uid://banc03nkycipe" path="res://assets/tiles/Light.png" id="1_s1643"]
+[ext_resource type="Script" path="res://components/submarine_flashlight/submarine_flashlight.gd" id="1_tic5h"]
+[ext_resource type="Texture2D" uid="uid://bi42bo7rs2q4s" path="res://assets/2d_lights_and_shadows_neutral_point_light.webp" id="2_ouium"]
+
+[node name="SubmarineFlashlight" type="Marker2D"]
+script = ExtResource("1_tic5h")
+
+[node name="Flashlight" type="PointLight2D" parent="."]
+position = Vector2(107, 0)
+scale = Vector2(0.226178, 0.193493)
+texture = ExtResource("1_s1643")
+
+[node name="Backlight" type="PointLight2D" parent="."]
+scale = Vector2(4.49219, 2.46875)
+blend_mode = 1
+texture = ExtResource("2_ouium")
+texture_scale = 2.0
