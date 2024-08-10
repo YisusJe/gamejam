@@ -1,4 +1,2 @@
-# gamejam
+ gamejam
 Define it later
-
-test
