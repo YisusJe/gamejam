@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0iw1olo862m"]
+[gd_scene load_steps=5 format=3 uid="uid://c0iw1olo862m"]
 
 [ext_resource type="PackedScene" uid="uid://05u0yh7kwb33" path="res://assets/Player/player.tscn" id="1_waar8"]
+[ext_resource type="PackedScene" uid="uid://2otprm8pogia" path="res://assets/World/SelectSFX.tscn" id="2_pyg5f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rfku0"]
 size = Vector2(139, 20)
@@ -12,6 +13,8 @@ size = Vector2(123, 20)
 
 [node name="Player" parent="." instance=ExtResource("1_waar8")]
 position = Vector2(33, 15)
+
+[node name="AudioStreamPlayer2D" parent="Player" instance=ExtResource("2_pyg5f")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(39, 35)
