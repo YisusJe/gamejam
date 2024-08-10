@@ -1,11 +1,67 @@
-[gd_scene load_steps=4 format=3 uid="uid://dn6157vjvra5p"]
+[gd_scene load_steps=8 format=3 uid="uid://dn6157vjvra5p"]
 
 [ext_resource type="Script" path="res://components/player_duck/player_duck.gd" id="1_smnwh"]
-[ext_resource type="Texture2D" uid="uid://crxt7yadn4rox" path="res://assets/Aldolf_Cuak-Sin_casco.png" id="1_u75wm"]
+[ext_resource type="Texture2D" uid="uid://d0feqarmieua7" path="res://assets/Player/Adolf_cuack.png" id="2_pvnp7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1i6fg"]
 radius = 7.0
 height = 24.0
+
+[sub_resource type="Animation" id="Animation_k873r"]
+resource_name = "walk"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_ybp6c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_2qnhp"]
+resource_name = "idle"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [5, 6, 7, 8, 9]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vb781"]
+_data = {
+"RESET": SubResource("Animation_ybp6c"),
+"idle": SubResource("Animation_2qnhp"),
+"walk": SubResource("Animation_k873r")
+}
 
 [node name="PlayerDuck" type="CharacterBody2D"]
 script = ExtResource("1_smnwh")
@@ -15,4 +71,12 @@ shape = SubResource("CapsuleShape2D_1i6fg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0.5, 0)
-texture = ExtResource("1_u75wm")
+texture = ExtResource("2_pvnp7")
+hframes = 5
+vframes = 2
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vb781")
+}

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi42bo7rs2q4s"
-path="res://.godot/imported/2d_lights_and_shadows_neutral_point_light.webp-e7ff95629e050edcc761aaf5d8570e25.ctex"
+uid="uid://pv3ebc4ofg4y"
+path="res://.godot/imported/Adolf_cuack_sin_casco.png-bfb699d9cb57a3ac9c31c5597c3f7e57.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/2d_lights_and_shadows_neutral_point_light.webp"
-dest_files=["res://.godot/imported/2d_lights_and_shadows_neutral_point_light.webp-e7ff95629e050edcc761aaf5d8570e25.ctex"]
+source_file="res://assets/Player/Adolf_cuack_sin_casco.png"
+dest_files=["res://.godot/imported/Adolf_cuack_sin_casco.png-bfb699d9cb57a3ac9c31c5597c3f7e57.ctex"]
 
 [params]
 

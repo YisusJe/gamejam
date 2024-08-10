@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://baaqv54j1tds0"
-path="res://.godot/imported/WhatsApp Image 2024-08-08 at 9.53.57 PM.jpeg-4acd4b624e9b5845e18db7f4f7979fac.ctex"
+uid="uid://bi42bo7rs2q4s"
+path="res://.godot/imported/2d_lights_and_shadows_neutral_point_light.webp-cdd259adec05ef13e6dbabe46dce936d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/WhatsApp Image 2024-08-08 at 9.53.57 PM.jpeg"
-dest_files=["res://.godot/imported/WhatsApp Image 2024-08-08 at 9.53.57 PM.jpeg-4acd4b624e9b5845e18db7f4f7979fac.ctex"]
+source_file="res://assets/Attacks/Flashlight/2d_lights_and_shadows_neutral_point_light.webp"
+dest_files=["res://.godot/imported/2d_lights_and_shadows_neutral_point_light.webp-cdd259adec05ef13e6dbabe46dce936d.ctex"]
 
 [params]
 
