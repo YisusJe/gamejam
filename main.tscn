@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://crlw3k3a468jq"]
 
-[ext_resource type="TileSet" uid="uid://ba1rs0jvsxmfn" path="res://tiles.tres" id="1_fbxxm"]
+[ext_resource type="TileSet" uid="uid://4mrka1unxr8b" path="res://tiles.tres" id="1_fbxxm"]
 [ext_resource type="PackedScene" uid="uid://c8e0enym4m2vk" path="res://components/player_submarine/player_submarine.tscn" id="3_jyqil"]
-[ext_resource type="PackedScene" uid="uid://dll4c0wasrjny" path="res://submarine_inside.tscn" id="3_ysf0h"]
+[ext_resource type="PackedScene" uid="uid://djd1geuq5rkws" path="res://submarine_inside.tscn" id="3_ysf0h"]
 [ext_resource type="PackedScene" uid="uid://dn6157vjvra5p" path="res://components/player_duck/player_duck.tscn" id="4_co1kd"]
 [ext_resource type="PackedScene" uid="uid://d31os1y8ajbf7" path="res://components/player_controller/player_controller.tscn" id="4_ncm74"]
 [ext_resource type="PackedScene" uid="uid://dtrweisl825m1" path="res://components/enemy/enemy.tscn" id="6_ddaju"]

@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://ba1rs0jvsxmfn"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://4mrka1unxr8b"]
 
 [ext_resource type="Texture2D" uid="uid://b5cfbqd585br5" path="res://assets/tiles/CaveTiles/mainlev_build.png" id="1_66vr2"]
 [ext_resource type="Texture2D" uid="uid://cx5cw2iy25fsl" path="res://assets/tiles/CaveTiles/props1.png" id="2_od3iq"]
