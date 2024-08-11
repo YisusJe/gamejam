@@ -14,6 +14,7 @@ script = ExtResource("1_tic5h")
 [node name="Flashlight" type="PointLight2D" parent="."]
 position = Vector2(107, 0)
 scale = Vector2(0.226178, 0.193493)
+color = Color(1, 0.834731, 0.800206, 1)
 texture = ExtResource("1_s1643")
 
 [node name="Backlight" type="PointLight2D" parent="."]
