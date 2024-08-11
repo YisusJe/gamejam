@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dll4c0wasrjny"]
 
-[ext_resource type="TileSet" uid="uid://ba1rs0jvsxmfn" path="res://tiles.tres" id="1_f8oy6"]
+[ext_resource type="TileSet" uid="uid://4mrka1unxr8b" path="res://tiles.tres" id="1_f8oy6"]
 
 [node name="SubmarineInside" type="Node2D"]
 
