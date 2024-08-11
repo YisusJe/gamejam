@@ -6,6 +6,7 @@ enum PlayerTypes {
 	DUCK
 }
 
+@onready var background_theme = $"../AudioStreamPlayer"
 @export var current_player_type : PlayerTypes = PlayerTypes.DUCK;
 @export var player_submarine : PlayerSubmarine;
 @export var player_duck : PlayerDuck;
@@ -16,17 +17,32 @@ const speed_inactive = 0
 
 func _ready():
 	current_player = player_submarine
+	background_theme.play()
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ChangePlayer"):
-		if current_player_type == PlayerTypes.SUBMARINE:
-			set_player_speed(PlayerTypes.SUBMARINE, speed_inactive)
-			set_player_speed(PlayerTypes.DUCK, speed_active)
-			set_player(PlayerTypes.DUCK)
-		elif current_player_type == PlayerTypes.DUCK:
-			set_player_speed(PlayerTypes.DUCK, speed_inactive)
-			set_player_speed(PlayerTypes.SUBMARINE, speed_active)
-			set_player(PlayerTypes.SUBMARINE)
+		toggle_player()
+
+func toggle_player():
+	var new_player_type: int	
+	if current_player_type == PlayerTypes.SUBMARINE:
+		new_player_type = PlayerTypes.DUCK
+	elif current_player_type == PlayerTypes.DUCK:
+		new_player_type = PlayerTypes.SUBMARINE
+	change_player(current_player_type, new_player_type)
+
+func change_player(old_type, new_type):
+	set_player_speed(old_type, speed_inactive)
+	set_player_speed(new_type, speed_active)
+	set_pitch_background(new_type)
+	set_player(new_type)
+
+func set_pitch_background(player_type):
+	match player_type:
+		PlayerTypes.SUBMARINE:
+			background_theme.set_pitch_scale(1.0)
+		PlayerTypes.DUCK:
+			background_theme.set_pitch_scale(4.0)		
 
 func set_player_speed(player_type, speed):
 	match player_type:
