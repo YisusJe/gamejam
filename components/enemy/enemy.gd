@@ -12,7 +12,6 @@ func _ready():
 	area.connect("area_exited", on_light_exited)
 
 func _physics_process(_delta):
-	print(is_illuminated)
 	var raw_velocity = position.direction_to(player_submarine.position) * speed
 	velocity = -raw_velocity if is_illuminated else raw_velocity # Move in opposite direction if illuminated
 

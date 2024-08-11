@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dtrweisl825m1"]
 
 [ext_resource type="Script" path="res://components/enemy/enemy.gd" id="1_csc34"]
-[ext_resource type="Texture2D" uid="uid://baaqv54j1tds0" path="res://assets/WhatsApp Image 2024-08-08 at 9.53.57 PM.jpeg" id="1_mq82q"]
+[ext_resource type="Texture2D" uid="uid://baaqv54j1tds0" path="res://assets/Enemies/WhatsApp Image 2024-08-08 at 9.53.57 PM.jpeg" id="1_mq82q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w1g7o"]
 
