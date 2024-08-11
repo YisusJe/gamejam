@@ -17,6 +17,7 @@ const speed_inactive = 0
 
 func _ready():
 	current_player = player_submarine
+	background_theme.set_pitch_scale(4.0)
 	background_theme.play()
 
 func _process(_delta):
