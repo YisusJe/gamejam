@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dsvm66y1imygc"]
+[gd_scene load_steps=6 format=3 uid="uid://dsvm66y1imygc"]
 
 [ext_resource type="Texture2D" uid="uid://banc03nkycipe" path="res://assets/tiles/Light.png" id="1_s1643"]
 [ext_resource type="Script" path="res://components/submarine_flashlight/submarine_flashlight.gd" id="1_tic5h"]
 [ext_resource type="Texture2D" uid="uid://bi42bo7rs2q4s" path="res://assets/Attacks/Flashlight/2d_lights_and_shadows_neutral_point_light.webp" id="3_pdxx1"]
+[ext_resource type="Script" path="res://components/submarine_flashlight/FlashTimer.gd" id="4_tcrji"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vyeth"]
 size = Vector2(189, 116)
@@ -32,3 +33,6 @@ visible = false
 position = Vector2(110, 0)
 scale = Vector2(0.222603, 0.222603)
 texture = ExtResource("1_s1643")
+
+[node name="Timer" type="Timer" parent="."]
+script = ExtResource("4_tcrji")
