@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://banc03nkycipe" path="res://assets/tiles/Light.png" id="1_s1643"]
 [ext_resource type="Script" path="res://components/submarine_flashlight/submarine_flashlight.gd" id="1_tic5h"]
+[ext_resource type="Texture2D" uid="uid://d4dxi5ks0ghbn" path="res://assets/tiles/Light_mejorada.png" id="2_5kj7f"]
 [ext_resource type="Texture2D" uid="uid://c3wiem37128kb" path="res://assets/backlight.png" id="3_vipa1"]
-[ext_resource type="Script" path="res://components/submarine_flashlight/FlashlightTimer.gd" id="4_l5b2k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vyeth"]
 size = Vector2(189, 116)
@@ -12,12 +12,13 @@ size = Vector2(189, 116)
 script = ExtResource("1_tic5h")
 
 [node name="Flashlight" type="PointLight2D" parent="."]
-position = Vector2(107, 0)
+position = Vector2(118.625, 0)
 scale = Vector2(0.226178, 0.193493)
-color = Color(1, 0.834731, 0.800206, 1)
-texture = ExtResource("1_s1643")
+color = Color(1, 0.517647, 0.454902, 1)
+texture = ExtResource("2_5kj7f")
 
 [node name="Backlight" type="PointLight2D" parent="."]
+position = Vector2(118.625, 0)
 scale = Vector2(4.49219, 2.46875)
 blend_mode = 1
 texture = ExtResource("3_vipa1")
@@ -26,7 +27,7 @@ texture_scale = 3.36
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(105.5, -1)
+position = Vector2(118.625, -1)
 shape = SubResource("RectangleShape2D_vyeth")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -36,4 +37,3 @@ scale = Vector2(0.222603, 0.222603)
 texture = ExtResource("1_s1643")
 
 [node name="Timer" type="Timer" parent="."]
-script = ExtResource("4_l5b2k")

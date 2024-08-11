@@ -5,7 +5,9 @@ extends CharacterBody2D
 @export var auto_breaking_force = 0.2
 @export var speed = 400
 @onready var camera = $Camera2D
-@onready var submarine_flashlight = $SubmarineFlashlight
+@onready var submarine_flashlight = $PlayerSubmarineContainer/SubmarineFlashlight
+@onready var burbujas = $PlayerSubmarineContainer/Burbuja
+@onready var container = $PlayerSubmarineContainer
 
 var stering = Vector2.ZERO
 
@@ -17,10 +19,25 @@ func get_input(delta):
 
 	velocity = stering * speed
 
+	burbujas.amount_ratio = stering.length() / max_steering
+
+	if(stering.length() > max_steering * 0.7):
+		burbujas.amount_ratio = 1.0
+	elif(stering.length() > max_steering * 0.4):
+		burbujas.amount_ratio = 0.5
+	else:
+		burbujas.amount_ratio = 0.1
+
+	if velocity.x > 0:
+		container.scale.x = abs(container.scale.x)
+	elif velocity.x < 0:
+		container.scale.x = abs(container.scale.x) * -1
+
 	if(Input.is_action_pressed("Flashlight")):
 		submarine_flashlight.turn_on()
 	else:
 		submarine_flashlight.turn_off()
+		
 
 func _physics_process(delta):
 	get_input(delta)
