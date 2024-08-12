@@ -22,7 +22,7 @@ position = Vector2(118.625, 0)
 scale = Vector2(4.49219, 2.46875)
 blend_mode = 1
 texture = ExtResource("3_vipa1")
-texture_scale = 3.36
+texture_scale = 2.0
 
 [node name="Area2D" type="Area2D" parent="."]
 
