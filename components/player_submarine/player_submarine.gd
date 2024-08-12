@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var max_steering = 0.3
 @export var auto_breaking_force = 0.2
 @export var speed = 400
+@export var health : Health;
 @onready var camera = $Camera2D
 @onready var submarine_flashlight = $PlayerSubmarineContainer/SubmarineFlashlight
 @onready var burbujas = $PlayerSubmarineContainer/Burbuja
