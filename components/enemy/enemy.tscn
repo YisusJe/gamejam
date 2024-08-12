@@ -110,7 +110,6 @@ speed_scale = 0.358925
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
 shape = SubResource("RectangleShape2D_w1g7o")
 
 [node name="RayCastDown" type="RayCast2D" parent="."]
