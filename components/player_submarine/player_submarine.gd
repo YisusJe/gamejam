@@ -6,7 +6,6 @@ extends CharacterBody2D
 @export var speed = 400
 @onready var camera = $Camera2D
 @onready var submarine_flashlight = $SubmarineFlashlight
-
 var stering = Vector2.ZERO
 
 func get_input(delta):
@@ -18,7 +17,7 @@ func get_input(delta):
 	velocity = stering * speed
 
 	if(Input.is_action_pressed("Flashlight")):
-		submarine_flashlight.turn_on()
+		submarine_flashlight.turn_on(delta)
 	else:
 		submarine_flashlight.turn_off()
 
