@@ -1,13 +1,24 @@
 [gd_scene load_steps=8 format=3 uid="uid://c8e0enym4m2vk"]
 
 [ext_resource type="Script" path="res://components/player_submarine/player_submarine.gd" id="1_4dmpj"]
-[ext_resource type="Texture2D" uid="uid://b3guan1uyewu1" path="res://assets/yo.png" id="1_8ghdw"]
+[ext_resource type="Texture2D" uid="uid://recssq64gg0q" path="res://assets/Player/Submarino-Sprite.png" id="2_4j4ie"]
 [ext_resource type="PackedScene" uid="uid://dsvm66y1imygc" path="res://components/submarine_flashlight/submarine_flashlight.tscn" id="3_ycmfj"]
 [ext_resource type="Texture2D" uid="uid://bi42bo7rs2q4s" path="res://assets/Attacks/Flashlight/2d_lights_and_shadows_neutral_point_light.webp" id="4_4dgir"]
+[ext_resource type="Texture2D" uid="uid://vs58qfi5u42o" path="res://assets/Burbuja.png" id="5_bw03k"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uqfe3"]
-radius = 9.0
-height = 20.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1k1qm"]
+size = Vector2(35, 20.5)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_eliwu"]
+particle_flag_disable_z = true
+gravity = Vector3(-24.17, -50, 0)
+linear_accel_max = 50.0
+tangential_accel_min = -20.0
+tangential_accel_max = 20.0
+scale_min = 0.2
+scale_max = 0.4
+turbulence_enabled = true
+turbulence_influence_min = 0.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7g4fb"]
 bg_color = Color(0, 0, 0, 1)
@@ -19,17 +30,18 @@ bg_color = Color(0.207475, 0.618541, 0.937717, 1)
 script = ExtResource("1_4dmpj")
 speed = 10
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.257143, 0.29529)
-texture = ExtResource("1_8ghdw")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_uqfe3")
+position = Vector2(-2.5, -1.25)
+shape = SubResource("RectangleShape2D_1k1qm")
 
-[node name="SubmarineFlashlight" parent="." instance=ExtResource("3_ycmfj")]
+[node name="PlayerSubmarineContainer" type="Node2D" parent="."]
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="SubmarineFlashlight" parent="PlayerSubmarineContainer" instance=ExtResource("3_ycmfj")]
+
+[node name="PointLight2D" type="PointLight2D" parent="PlayerSubmarineContainer"]
+position = Vector2(0, -12)
 scale = Vector2(0.414062, 0.414062)
+color = Color(1, 0.517763, 0.455126, 1)
 energy = 0.8
 texture = ExtResource("4_4dgir")
 
@@ -44,3 +56,15 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_33o48")
 max_value = 20.0
 value = 20.0
 show_percentage = false
+texture_scale = 1.5
+
+[node name="Burbuja" type="GPUParticles2D" parent="PlayerSubmarineContainer"]
+position = Vector2(-5, 0)
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_eliwu")
+texture = ExtResource("5_bw03k")
+lifetime = 3.0
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerSubmarineContainer"]
+scale = Vector2(0.257143, 0.29529)
+texture = ExtResource("2_4j4ie")
