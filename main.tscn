@@ -51,8 +51,8 @@ shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_7xa4g")
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 texture_repeat = 1
 material = SubResource("ShaderMaterial_4g0by")
-position = Vector2(509, 185.146)
-scale = Vector2(2.8182, 2.9576)
+position = Vector2(501, 185.146)
+scale = Vector2(5.09766, 2.9576)
 texture = SubResource("NoiseTexture2D_05srg")
 
 [node name="TileMap" type="TileMap" parent="."]
