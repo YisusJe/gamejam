@@ -5,13 +5,14 @@ extends CharacterBody2D
 @export var player_hunting_distance = 200
 @export var player_running_distance = 400
 @onready var area = $Area2D
+@onready var anim = $AnimationPlayer
 @onready var sprite = $Sprite2D
 @onready var ray_cast_up = $RayCastUp
 @onready var ray_cast_down = $RayCastDown
 @onready var ray_cast_left = $RayCastLeft
 @onready var ray_cast_right = $RayCastRight
 
-var is_attacking = true
+var is_attacking = false
 var timer = null
 var movement_mode : MovementModes = MovementModes.Hunting;
 
@@ -205,6 +206,7 @@ func _physics_process(_delta):
 	rays_frame = update_weights_by_collisions(rays_frame)
 	
 	if (movement_mode == MovementModes.Hunting):
+		anim.play("swim")
 		if (distance_to_player < player_hunting_distance):
 			if (rng.randf_range(0.0, 1.0) > 0.99):
 				movement_mode = MovementModes.Attacking
@@ -221,6 +223,7 @@ func _physics_process(_delta):
 		var percentage_speed = 1 - ease(distance_to_player / float(player_hunting_distance), -0.2)
 		speed += percentage_speed * 200
 	elif (movement_mode == MovementModes.Attacking):
+		anim.play("attack")
 		rays_frame = update_weights_attacking(rays_frame, direction_to_player)
 		var percentage_speed = 1 - ease((distance_to_player / float(player_attacking_distance)), 0.4)
 		speed += rng.randf_range(50.0, 100.0)
