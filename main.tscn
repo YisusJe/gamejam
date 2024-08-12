@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://crlw3k3a468jq"]
+[gd_scene load_steps=17 format=3 uid="uid://crlw3k3a468jq"]
 
 [ext_resource type="TileSet" uid="uid://4mrka1unxr8b" path="res://tiles.tres" id="1_fbxxm"]
 [ext_resource type="PackedScene" uid="uid://c8e0enym4m2vk" path="res://components/player_submarine/player_submarine.tscn" id="3_jyqil"]
@@ -9,6 +9,7 @@
 [ext_resource type="Shader" path="res://background.gdshader" id="7_bwepx"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="7_lafka"]
 [ext_resource type="AudioStream" uid="uid://ddjgp61wtj5wx" path="res://assets/Music/background_theme.mp3" id="9_b14kx"]
+[ext_resource type="Script" path="res://scripts/health_bar.gd" id="10_wcfw7"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_frrhv"]
 noise_type = 2
@@ -69,6 +70,7 @@ position = Vector2(307, -795)
 [node name="Camera2D" type="Camera2D" parent="PlayerDuck"]
 position = Vector2(0, 2)
 zoom = Vector2(4, 4)
+script = ExtResource("7_lafka")
 
 [node name="PlayerController" parent="." node_paths=PackedStringArray("player_submarine", "player_duck") instance=ExtResource("4_ncm74")]
 player_submarine = NodePath("../PlayerSubmarine")
@@ -91,3 +93,15 @@ player_submarine = NodePath("../PlayerSubmarine")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_b14kx")
 volume_db = -25.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("player_controller")]
+offset_left = 60.0
+offset_top = 46.0
+offset_right = 514.0
+offset_bottom = 73.0
+max_value = 3.0
+value = 3.0
+script = ExtResource("10_wcfw7")
+player_controller = NodePath("../../PlayerController")

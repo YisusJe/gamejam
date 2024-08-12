@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dsvm66y1imygc"]
+[gd_scene load_steps=5 format=3 uid="uid://dsvm66y1imygc"]
 
 [ext_resource type="Texture2D" uid="uid://banc03nkycipe" path="res://assets/tiles/Light.png" id="1_s1643"]
 [ext_resource type="Script" path="res://components/submarine_flashlight/submarine_flashlight.gd" id="1_tic5h"]
@@ -35,5 +35,3 @@ visible = false
 position = Vector2(110, 0)
 scale = Vector2(0.222603, 0.222603)
 texture = ExtResource("1_s1643")
-
-[node name="Timer" type="Timer" parent="."]
