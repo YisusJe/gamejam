@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var max_steering = 0.3
 @export var auto_breaking_force = 0.2
 @export var speed = 400
+@export var health : Health;
 @onready var camera = $Camera2D
 @onready var submarine_flashlight = $PlayerSubmarineContainer/SubmarineFlashlight
 @onready var burbujas = $PlayerSubmarineContainer/Burbuja
@@ -34,10 +35,10 @@ func get_input(delta):
 		container.scale.x = abs(container.scale.x) * -1
 
 	if(Input.is_action_pressed("Flashlight")):
-		submarine_flashlight.turn_on()
+		submarine_flashlight.turn_on(delta)
 	else:
 		submarine_flashlight.turn_off()
-		
+
 
 func _physics_process(delta):
 	get_input(delta)
