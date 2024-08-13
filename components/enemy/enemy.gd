@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var player_running_distance = 400
 @onready var area = $Area2D
 @onready var sprite = $Sprite2D
+@onready var anim = $AnimationPlayer
 @onready var ray_cast_up = $RayCastUp
 @onready var ray_cast_down = $RayCastDown
 @onready var ray_cast_left = $RayCastLeft
@@ -41,6 +42,9 @@ func _ready():
 		rays.append(ray)
 
 func on_damage_applied():
+	# posible fix
+	anim.play("attacking")
+	await get_tree().create_timer(1).timeout 
 	movement_mode = MovementModes.Running
 
 func get_dot_product_percentage(dot_product):
@@ -210,6 +214,7 @@ func _physics_process(_delta):
 	rays_frame = update_weights_by_collisions(rays_frame)
 	
 	if (movement_mode == MovementModes.Hunting):
+		anim.play("hunting")
 		if (distance_to_player < player_hunting_distance):
 			if (rng.randf_range(0.0, 1.0) > 0.99):
 				movement_mode = MovementModes.Attacking
@@ -231,6 +236,7 @@ func _physics_process(_delta):
 		speed += rng.randf_range(50.0, 100.0)
 		speed += percentage_speed * 2000
 	elif (movement_mode == MovementModes.Running):
+		anim.play("hunting")
 		rays_frame = update_weights_on_intended_direction(rays_frame, -direction_to_player)
 		rays_frame = update_weights_running(rays_frame, direction_to_player)
 		speed = 500
