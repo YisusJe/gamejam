@@ -10,6 +10,7 @@ extends CharacterBody2D
 @onready var ray_cast_down = $RayCastDown
 @onready var ray_cast_left = $RayCastLeft
 @onready var ray_cast_right = $RayCastRight
+@onready var hitbox = $Hitbox
 
 var is_attacking = true
 var timer = null
@@ -31,12 +32,16 @@ var number_of_rays = 16
 func _ready():
 	area.monitoring = true
 	area.connect("area_entered", on_light_entered)
+	hitbox.connect("damage_applied", on_damage_applied)
 
 	var step = 2 * PI / number_of_rays
 
 	for i in range(number_of_rays):
 		var ray = Vector2(1, 0).rotated(step * i)
 		rays.append(ray)
+
+func on_damage_applied():
+	movement_mode = MovementModes.Running
 
 func get_dot_product_percentage(dot_product):
 	return (dot_product + 1) / 2
