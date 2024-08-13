@@ -71,6 +71,7 @@ position = Vector2(307, -795)
 position = Vector2(0, 2)
 zoom = Vector2(4, 4)
 script = ExtResource("5_hri12")
+random_strength = 20.0
 
 [node name="PlayerController" parent="." node_paths=PackedStringArray("player_submarine", "player_duck") instance=ExtResource("6_qrjgv")]
 player_submarine = NodePath("../PlayerSubmarine")
@@ -84,6 +85,7 @@ position = Vector2(0, 2)
 zoom = Vector2(3, 3)
 position_smoothing_speed = 3.0
 script = ExtResource("5_hri12")
+random_strength = 20.0
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("player_submarine") instance=ExtResource("8_3u2lt")]
 position = Vector2(-114, 395)
