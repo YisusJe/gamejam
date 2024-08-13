@@ -16,9 +16,9 @@ const speed_active = 400
 const speed_inactive = 0
 
 func _ready():
-	print(player_submarine)
+	player_submarine.health.connect("health_changed", on_health_changed)
 	player_submarine.health.connect("health_depleted", on_health_depleted)
-	current_player = player_submarine
+	current_player = player_duck
 	background_theme.set_pitch_scale(4.0)
 	background_theme.play()
 
@@ -64,6 +64,11 @@ func set_player(player_type):
 			current_player = player_duck
 
 	current_player.camera.make_current()
+
+func on_health_changed(diff):
+	if	(diff > 0):
+		current_player.camera.shake_camera()
+
 
 func on_health_depleted():
 	queue_free()

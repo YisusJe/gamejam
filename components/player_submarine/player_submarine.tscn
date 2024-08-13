@@ -30,7 +30,9 @@ script = ExtResource("1_4dmpj")
 health = NodePath("Health")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-21, 2, -13, 10, 13, 10, 17, 5, 16, -5, 9, -10, 3, -13, -4, -13, -10, -10, -20, -4)
+position = Vector2(-0.109, -0.255)
+scale = Vector2(0.866848, 0.866848)
+polygon = PackedVector2Array(-21, 2, -13, 10, 13, 10, 17, 5, 16, -5, 9, -10, 3, -13, -4, -13, -10, -10, -17.203, -5.67822, -20, -4)
 
 [node name="PlayerSubmarineContainer" type="Node2D" parent="."]
 

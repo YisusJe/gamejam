@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var player_attacking_distance = 150
 @export var player_hunting_distance = 200
 @export var player_running_distance = 400
+@export var threshold_timeout_attacking = 7
 @onready var area = $Area2D
 @onready var sprite = $Sprite2D
 @onready var anim = $AnimationPlayer
@@ -11,11 +12,16 @@ extends CharacterBody2D
 @onready var ray_cast_down = $RayCastDown
 @onready var ray_cast_left = $RayCastLeft
 @onready var ray_cast_right = $RayCastRight
+@onready var ray_cast_up_left = $RayCastUpLeft
+@onready var ray_cast_up_right = $RayCastUpRight
+@onready var ray_cast_down_left = $RayCastDownLeft
+@onready var ray_cast_down_right = $RayCastDownRight
 @onready var hitbox = $Hitbox
 
 var is_attacking = true
 var timer = null
 var movement_mode : MovementModes = MovementModes.Hunting;
+var timeout_attacking = threshold_timeout_attacking
 
 enum MovementModes {
 	Hunting,
@@ -42,10 +48,8 @@ func _ready():
 		rays.append(ray)
 
 func on_damage_applied():
-	# posible fix
-	anim.play("attacking")
-	await get_tree().create_timer(1).timeout 
-	movement_mode = MovementModes.Running
+	timeout_attacking = threshold_timeout_attacking
+	start_running()
 
 func get_dot_product_percentage(dot_product):
 	return (dot_product + 1) / 2
@@ -59,15 +63,45 @@ func clamp_weight(weight):
 func update_weights_by_collisions(rays_frame):
 	var colliding_vectors = []
 	var output = []
-	
-	if (ray_cast_up.is_colliding()):
-		colliding_vectors.append(Vector2(0, -1.0))
-	if (ray_cast_down.is_colliding()):
-		colliding_vectors.append(Vector2(0, 1.0))
-	if (ray_cast_left.is_colliding()):
-		colliding_vectors.append(Vector2(-1.0, 0.0))
-	if (ray_cast_right.is_colliding()):
-		colliding_vectors.append(Vector2(1.0, 0.0))
+
+	var ray_cast_checks = [
+		{
+			'ray': ray_cast_up,
+			'vector': Vector2(0, -1.0)
+		},
+		{
+			'ray': ray_cast_down,
+			'vector': Vector2(0, 1.0)
+		},	
+		{
+			'ray': ray_cast_left,
+			'vector': Vector2(-1.0, 0.0)
+		},	
+		{
+			'ray': ray_cast_right,
+			'vector': Vector2(1.0, 0.0)
+		},	
+		{
+			'ray': ray_cast_up_left,
+			'vector': Vector2(-0.7, -0.7)
+		},	
+		{
+			'ray': ray_cast_up_right,
+			'vector': Vector2(0.7, -0.7)
+		},	
+		{
+			'ray': ray_cast_down_left,
+			'vector': Vector2(-0.7, 0.7)
+		},	
+		{
+			'ray': ray_cast_down_right,
+			'vector': Vector2(0.7, 0.7)
+		},	
+	]
+
+	for check in ray_cast_checks:
+		if(check['ray'].is_colliding()):
+			colliding_vectors.append(check['vector'])
 
 	if (colliding_vectors.size() <= 0):
 		return rays_frame
@@ -195,9 +229,12 @@ var previous_rays = []
 
 # 		draw_line(Vector2(0.0, 0.0), distance, Color.GREEN, 1.0)
 
-# 	draw_line(Vector2(0.0, 0.0), previous_best_ray * 100, Color.RED, 1.0)
+# 	if previous_best_ray:
+# 		draw_line(Vector2(0.0, 0.0), previous_best_ray * 100, Color.RED, 1.0)
 
-func _physics_process(_delta):
+func _physics_process(delta):
+	print(Vector2(1.0, 1.0).normalized().x)
+
 	var direction_to_player = position.direction_to(player_submarine.position)
 	var distance_to_player = (player_submarine.position - position).length()
 	var direction = direction_to_player
@@ -216,8 +253,10 @@ func _physics_process(_delta):
 	if (movement_mode == MovementModes.Hunting):
 		anim.play("hunting")
 		if (distance_to_player < player_hunting_distance):
-			if (rng.randf_range(0.0, 1.0) > 0.99):
+			if (timeout_attacking <= 0):
 				movement_mode = MovementModes.Attacking
+			else:
+				timeout_attacking -= 1 * delta
 		if (previous_best_ray):
 			rays_frame = update_weights_on_previous_best_ray(rays_frame, previous_best_ray)
 		if (distance_to_player > player_hunting_distance):
@@ -231,12 +270,18 @@ func _physics_process(_delta):
 		var percentage_speed = 1 - ease(distance_to_player / float(player_hunting_distance), -0.2)
 		speed += percentage_speed * 200
 	elif (movement_mode == MovementModes.Attacking):
+		if (distance_to_player < 150):
+			anim.play("attacking", 1.0)
+
+		if (previous_best_ray):
+			rays_frame = update_weights_on_previous_best_ray(rays_frame, previous_best_ray)
 		rays_frame = update_weights_attacking(rays_frame, direction_to_player)
 		var percentage_speed = 1 - ease((distance_to_player / float(player_attacking_distance)), 0.4)
 		speed += rng.randf_range(50.0, 100.0)
 		speed += percentage_speed * 2000
 	elif (movement_mode == MovementModes.Running):
 		anim.play("hunting")
+
 		rays_frame = update_weights_on_intended_direction(rays_frame, -direction_to_player)
 		rays_frame = update_weights_running(rays_frame, direction_to_player)
 		speed = 500
@@ -280,6 +325,9 @@ func attack_player():
 	timer = null
 
 func on_light_entered(_area):
+	start_running()
+
+func start_running():
 	previous_best_ray = null
 	movement_mode = MovementModes.Running
 
