@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" path="res://background.gdshader" id="1_0od3m"]
 [ext_resource type="TileSet" uid="uid://4mrka1unxr8b" path="res://tiles.tres" id="2_3w2rb"]
-[ext_resource type="PackedScene" uid="uid://djd1geuq5rkws" path="res://submarine_inside.tscn" id="3_72hp0"]
+[ext_resource type="PackedScene" uid="uid://djd1geuq5rkws" path="res://levels/submarine_inside.tscn" id="3_72hp0"]
 [ext_resource type="PackedScene" uid="uid://dn6157vjvra5p" path="res://components/player_duck/player_duck.tscn" id="4_g1tum"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="5_hri12"]
 [ext_resource type="PackedScene" uid="uid://d31os1y8ajbf7" path="res://components/player_controller/player_controller.tscn" id="6_qrjgv"]
