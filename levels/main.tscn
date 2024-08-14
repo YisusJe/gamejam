@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d31os1y8ajbf7" path="res://components/player_controller/player_controller.tscn" id="6_qrjgv"]
 [ext_resource type="PackedScene" uid="uid://c8e0enym4m2vk" path="res://components/player_submarine/player_submarine.tscn" id="7_kwdqx"]
 [ext_resource type="PackedScene" uid="uid://dtrweisl825m1" path="res://components/enemy/enemy.tscn" id="8_3u2lt"]
-[ext_resource type="AudioStream" uid="uid://ddjgp61wtj5wx" path="res://assets/Music/background_theme.mp3" id="9_6jv66"]
+[ext_resource type="AudioStream" uid="uid://ddjgp61wtj5wx" path="res://assets/audio/music/background_theme.mp3" id="9_6jv66"]
 [ext_resource type="Script" path="res://scripts/health_bar.gd" id="10_uxmer"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_frrhv"]

@@ -12,8 +12,6 @@ enum PlayerTypes {
 @export var player_duck : PlayerDuck;
 
 var current_player;
-const speed_active = 400
-const speed_inactive = 0
 
 func _ready():
 	player_submarine.health.connect("health_changed", on_health_changed)
@@ -35,8 +33,8 @@ func toggle_player():
 	change_player(current_player_type, new_player_type)
 
 func change_player(old_type, new_type):
-	set_player_speed(old_type, speed_inactive)
-	set_player_speed(new_type, speed_active)
+	set_player_speed(old_type, false)
+	set_player_speed(new_type, true)
 	set_pitch_background(new_type)
 	set_player(new_type)
 
@@ -47,12 +45,12 @@ func set_pitch_background(player_type):
 		PlayerTypes.DUCK:
 			background_theme.set_pitch_scale(4.0)		
 
-func set_player_speed(player_type, speed):
+func set_player_speed(player_type, active):
 	match player_type:
 		PlayerTypes.SUBMARINE:
-			player_submarine.speed = speed
+			player_submarine.set_active(active)
 		PlayerTypes.DUCK:
-			player_duck.speed = speed
+			player_duck.set_active(active)
 
 func set_player(player_type):
 	current_player_type = player_type

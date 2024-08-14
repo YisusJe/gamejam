@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dtrweisl825m1"]
 
 [ext_resource type="Script" path="res://components/enemy/enemy.gd" id="1_csc34"]
-[ext_resource type="Texture2D" uid="uid://drp3vh66x8il1" path="res://assets/Enemies/Esqueleto-Abisal-SpriteSheet.png" id="2_c1cp6"]
+[ext_resource type="Texture2D" path="res://assets/Enemies/Esqueleto-Abisal-SpriteSheet.png" id="2_c1cp6"]
 [ext_resource type="Script" path="res://components/hitbox.gd" id="3_v34tv"]
 
 [sub_resource type="Animation" id="Animation_5j2mg"]
