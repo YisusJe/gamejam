@@ -1,6 +1,42 @@
-[gd_scene load_steps=12 format=3 uid="uid://1s6lcyb7njg2"]
+[gd_scene load_steps=15 format=3 uid="uid://1s6lcyb7njg2"]
 
 [ext_resource type="Texture2D" uid="uid://20gk1jmljn7t" path="res://assets/characters/Enemies/Ajolote-Sheet.png" id="1_nr2cp"]
+
+[sub_resource type="GDScript" id="GDScript_0td5m"]
+script/source = "extends CharacterBody2D
+
+@onready var sprite = $AnimatedSprite2D
+
+var speed = 50
+var player_chase = false
+var player = null
+var attack_distance = 50 # hay que ajustar al lenguetazo
+
+func _physics_process(delta):
+	if player_chase:
+		show() # screamer malo
+		var direction = (player.position - position).normalized()
+		position += direction * speed * delta
+
+		if player.position.distance_to(position) <= attack_distance:
+			sprite.play(\"attack\")
+		else:
+			sprite.play(\"moving\")
+
+		sprite.flip_h = direction.x < 0
+	else:
+		hide()
+
+
+func _on_detection_area_body_entered(body):
+	player = body
+	player_chase = true
+	
+
+func _on_detection_area_body_exited(body):
+	player = null
+	player_chase = false
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2shur"]
 atlas = ExtResource("1_nr2cp")
@@ -83,10 +119,32 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="ajolote" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1du6p"]
+radius = 6.0
+height = 60.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8lbcg"]
+radius = 49.6488
+
+[node name="gorgojo_enemy" type="CharacterBody2D"]
+script = SubResource("GDScript_0td5m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.375, 0.375)
 sprite_frames = SubResource("SpriteFrames_e8gu0")
-animation = &"attack"
+frame_progress = 0.984796
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_1du6p")
+
+[node name="detection_area" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+shape = SubResource("CircleShape2D_8lbcg")
+
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

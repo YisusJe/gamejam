@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dwurepxi4hufc"]
+[gd_scene load_steps=37 format=3 uid="uid://dwurepxi4hufc"]
 
 [ext_resource type="Shader" path="res://background.gdshader" id="1_aa406"]
 [ext_resource type="Texture2D" uid="uid://b6l0ib0kofitl" path="res://assets/tiles/Rocaseverda.png" id="1_n28gd"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://ddjgp61wtj5wx" path="res://assets/Music/background_theme.mp3" id="9_2764o"]
 [ext_resource type="Texture2D" uid="uid://bi42bo7rs2q4s" path="res://assets/Attacks/Flashlight/2d_lights_and_shadows_neutral_point_light.webp" id="10_db3g6"]
 [ext_resource type="Script" path="res://levels/tutorial/tutorial.gd" id="11_likh1"]
+[ext_resource type="PackedScene" uid="uid://1s6lcyb7njg2" path="res://components/enemy/ajolote.tscn" id="12_84kst"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_3w002"]
 noise_type = 2
@@ -435,3 +436,6 @@ texture = ExtResource("10_db3g6")
 [node name="Texto" type="Node2D" parent="CanvasLayer"]
 position = Vector2(357, 353)
 script = ExtResource("11_likh1")
+
+[node name="gorgojo_enemy" parent="." instance=ExtResource("12_84kst")]
+position = Vector2(1529, 854)
