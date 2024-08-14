@@ -277,7 +277,7 @@ func _physics_process(delta):
 			rays_frame = update_weights_on_previous_best_ray(rays_frame, previous_best_ray)
 		rays_frame = update_weights_attacking(rays_frame, direction_to_player)
 		var percentage_speed = 1 - ease((distance_to_player / float(player_attacking_distance)), 0.4)
-		speed += rng.randf_range(50.0, 100.0)
+		speed += rng.randf_range(100.0, 150.0)
 		speed += percentage_speed * 2000
 	elif (movement_mode == MovementModes.Running):
 		anim.play("hunting")
