@@ -1,0 +1,92 @@
+[gd_scene load_steps=12 format=3 uid="uid://1s6lcyb7njg2"]
+
+[ext_resource type="Texture2D" uid="uid://20gk1jmljn7t" path="res://assets/characters/Enemies/Ajolote-Sheet.png" id="1_nr2cp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2shur"]
+atlas = ExtResource("1_nr2cp")
+region = Rect2(0, 96, 224, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_osr5y"]
+atlas = ExtResource("1_nr2cp")
+region = Rect2(224, 96, 224, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87mys"]
+atlas = ExtResource("1_nr2cp")
+region = Rect2(448, 96, 224, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwwwu"]
+atlas = ExtResource("1_nr2cp")
+region = Rect2(672, 96, 224, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d24nn"]
+atlas = ExtResource("1_nr2cp")
+region = Rect2(0, 0, 224, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqy18"]
+atlas = ExtResource("1_nr2cp")
+region = Rect2(0, 0, 224, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcn55"]
+atlas = ExtResource("1_nr2cp")
+region = Rect2(224, 0, 224, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36a84"]
+atlas = ExtResource("1_nr2cp")
+region = Rect2(448, 0, 224, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_isrud"]
+atlas = ExtResource("1_nr2cp")
+region = Rect2(672, 0, 224, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e8gu0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2shur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_osr5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87mys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwwwu")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d24nn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqy18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcn55")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36a84")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_isrud")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 5.0
+}]
+
+[node name="ajolote" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_e8gu0")
+animation = &"attack"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

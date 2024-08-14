@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drp3vh66x8il1"
-path="res://.godot/imported/Esqueleto-Abisal-SpriteSheet.png-1c91634cefdba5f0ab3331646bca955d.ctex"
+uid="uid://pv3ebc4ofg4y"
+path="res://.godot/imported/Adolf_cuack_sin_casco.png-fbfeaad466474558a855063d09df754f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemies/Esqueleto-Abisal-SpriteSheet.png"
-dest_files=["res://.godot/imported/Esqueleto-Abisal-SpriteSheet.png-1c91634cefdba5f0ab3331646bca955d.ctex"]
+source_file="res://assets/characters/Player/Adolf_cuack_sin_casco.png"
+dest_files=["res://.godot/imported/Adolf_cuack_sin_casco.png-fbfeaad466474558a855063d09df754f.ctex"]
 
 [params]
 

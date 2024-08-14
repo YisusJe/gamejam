@@ -396,7 +396,6 @@ position = Vector2(738, -704)
 player_submarine = NodePath("../PlayerSubmarine")
 
 [node name="PlayerController" parent="." node_paths=PackedStringArray("player_submarine", "player_duck") instance=ExtResource("7_4e18d")]
-current_player_type = 0
 player_submarine = NodePath("../PlayerSubmarine")
 player_duck = NodePath("../PlayerDuck")
 

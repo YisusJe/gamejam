@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d3thjxyiq3hnb"
-path="res://.godot/imported/FeldesPATO.png-60fb9462f544aa7d5f224f6154246012.ctex"
+path="res://.godot/imported/FeldesPATO.png-9a5cc04dbda9bf94d100142b94c95572.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Player/FeldesPATO.png"
-dest_files=["res://.godot/imported/FeldesPATO.png-60fb9462f544aa7d5f224f6154246012.ctex"]
+source_file="res://assets/characters/Player/FeldesPATO.png"
+dest_files=["res://.godot/imported/FeldesPATO.png-9a5cc04dbda9bf94d100142b94c95572.ctex"]
 
 [params]
 

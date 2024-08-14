@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://recssq64gg0q"
-path="res://.godot/imported/Submarino-Sprite.png-e990d3c29c4acf548abc99865da7b7c5.ctex"
+uid="uid://drp3vh66x8il1"
+path="res://.godot/imported/Esqueleto-Abisal-SpriteSheet.png-a56b708b330b6c35f4a7f6d889a54fac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Player/Submarino-Sprite.png"
-dest_files=["res://.godot/imported/Submarino-Sprite.png-e990d3c29c4acf548abc99865da7b7c5.ctex"]
+source_file="res://assets/characters/Enemies/Esqueleto-Abisal-SpriteSheet.png"
+dest_files=["res://.godot/imported/Esqueleto-Abisal-SpriteSheet.png-a56b708b330b6c35f4a7f6d889a54fac.ctex"]
 
 [params]
 
