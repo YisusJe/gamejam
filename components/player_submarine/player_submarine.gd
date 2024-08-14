@@ -5,11 +5,13 @@ extends CharacterBody2D
 @export var auto_breaking_force = 0.2
 @export var speed = 400
 @export var health : Health;
+@export var flashlightDuration = 5.0
+@export var isFlashlightBroke = false
 @onready var camera = $Camera2D
 @onready var submarine_flashlight = $PlayerSubmarineContainer/SubmarineFlashlight
 @onready var burbujas = $PlayerSubmarineContainer/Burbuja
 @onready var container = $PlayerSubmarineContainer
-
+signal flashlight_broke
 var stering = Vector2.ZERO
 
 func get_input(delta):
@@ -36,6 +38,13 @@ func get_input(delta):
 
 	if(Input.is_action_pressed("Flashlight")):
 		submarine_flashlight.turn_on(delta)
+		flashlightDuration -= 1 * delta
+		if (flashlightDuration <= 0):
+			submarine_flashlight.turn_off()
+			if (!isFlashlightBroke):
+				flashlight_broke.emit()
+				isFlashlightBroke = true
+			return
 	else:
 		submarine_flashlight.turn_off()
 
