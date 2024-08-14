@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dll4c0wasrjny"]
+[gd_scene load_steps=7 format=3 uid="uid://b4fd7fjav1du4"]
 
 [ext_resource type="Script" path="res://submarine_inside.gd" id="1_aepql"]
 [ext_resource type="TileSet" uid="uid://4mrka1unxr8b" path="res://tiles.tres" id="1_f8oy6"]

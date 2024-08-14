@@ -37,7 +37,7 @@ func get_input(delta):
 		container.scale.x = abs(container.scale.x) * -1
 
 	if(Input.is_action_pressed("Flashlight")):
-		submarine_flashlight.turn_on(delta)
+		submarine_flashlight.turn_on()
 		flashlightDuration -= 1 * delta
 		if (flashlightDuration <= 0):
 			submarine_flashlight.turn_off()
