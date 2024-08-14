@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b4fd7fjav1du4" path="res://levels/submarine_inside.tscn" id="6_6vtns"]
 [ext_resource type="PackedScene" uid="uid://d31os1y8ajbf7" path="res://components/player_controller/player_controller.tscn" id="7_4e18d"]
 [ext_resource type="PackedScene" uid="uid://dn6157vjvra5p" path="res://components/player_duck/player_duck.tscn" id="8_aynd4"]
-[ext_resource type="AudioStream" uid="uid://ddjgp61wtj5wx" path="res://assets/audio/music/background_theme.mp3" id="9_2764o"]
+[ext_resource type="AudioStream" uid="uid://ddjgp61wtj5wx" path="res://assets/Music/background_theme.mp3" id="9_2764o"]
 [ext_resource type="Texture2D" uid="uid://bi42bo7rs2q4s" path="res://assets/Attacks/Flashlight/2d_lights_and_shadows_neutral_point_light.webp" id="10_db3g6"]
 [ext_resource type="Script" path="res://levels/tutorial/tutorial.gd" id="11_likh1"]
 

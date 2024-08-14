@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dn6157vjvra5p"]
+[gd_scene load_steps=8 format=3 uid="uid://dn6157vjvra5p"]
 
 [ext_resource type="Script" path="res://components/player_duck/player_duck.gd" id="1_smnwh"]
-[ext_resource type="Texture2D" uid="uid://pv3ebc4ofg4y" path="res://assets/characters/Player/Adolf_cuack_sin_casco.png" id="2_a4r43"]
-[ext_resource type="AudioStream" uid="uid://4j1n56d4why7" path="res://assets/audio/sfx/Player/metalic_steps_sfx.mp3" id="3_r225a"]
+[ext_resource type="Texture2D" uid="uid://pv3ebc4ofg4y" path="res://assets/Player/Adolf_cuack_sin_casco.png" id="2_a2bjb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1i6fg"]
 radius = 7.0
@@ -74,7 +73,7 @@ shape = SubResource("CapsuleShape2D_1i6fg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0.5, 0)
-texture = ExtResource("2_a4r43")
+texture = ExtResource("2_a2bjb")
 hframes = 5
 vframes = 2
 frame = 1
@@ -83,7 +82,3 @@ frame = 1
 libraries = {
 "": SubResource("AnimationLibrary_vb781")
 }
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_r225a")
-volume_db = -10.0

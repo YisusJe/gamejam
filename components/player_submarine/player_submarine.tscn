@@ -1,10 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://c8e0enym4m2vk"]
+[gd_scene load_steps=11 format=3 uid="uid://c8e0enym4m2vk"]
 
 [ext_resource type="Script" path="res://components/player_submarine/player_submarine.gd" id="1_4dmpj"]
+[ext_resource type="Texture2D" uid="uid://recssq64gg0q" path="res://assets/Player/Submarino-Sprite.png" id="2_4j4ie"]
 [ext_resource type="PackedScene" uid="uid://dsvm66y1imygc" path="res://components/submarine_flashlight/submarine_flashlight.tscn" id="3_ycmfj"]
 [ext_resource type="Texture2D" uid="uid://bi42bo7rs2q4s" path="res://assets/Attacks/Flashlight/2d_lights_and_shadows_neutral_point_light.webp" id="4_4dgir"]
 [ext_resource type="Texture2D" uid="uid://vs58qfi5u42o" path="res://assets/Burbuja.png" id="5_bw03k"]
-[ext_resource type="Texture2D" uid="uid://csju8nc5e5o7v" path="res://assets/characters/Player/Submarino-Sheet.png" id="5_r3xeo"]
 [ext_resource type="Script" path="res://components/hurtbox.gd" id="7_uc5in"]
 [ext_resource type="Script" path="res://components/health.gd" id="8_1tkib"]
 
@@ -22,122 +22,6 @@ scale_max = 0.1
 turbulence_enabled = true
 turbulence_influence_min = 0.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ob5k1"]
-atlas = ExtResource("5_r3xeo")
-region = Rect2(0, 96, 176, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ahgye"]
-atlas = ExtResource("5_r3xeo")
-region = Rect2(176, 96, 176, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0ehog"]
-atlas = ExtResource("5_r3xeo")
-region = Rect2(352, 96, 176, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5aobc"]
-atlas = ExtResource("5_r3xeo")
-region = Rect2(528, 96, 176, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_je87e"]
-atlas = ExtResource("5_r3xeo")
-region = Rect2(704, 96, 176, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6k3rk"]
-atlas = ExtResource("5_r3xeo")
-region = Rect2(880, 96, 176, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fswt3"]
-atlas = ExtResource("5_r3xeo")
-region = Rect2(0, 0, 176, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qiskj"]
-atlas = ExtResource("5_r3xeo")
-region = Rect2(0, 0, 176, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lawj1"]
-atlas = ExtResource("5_r3xeo")
-region = Rect2(176, 0, 176, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ws2c4"]
-atlas = ExtResource("5_r3xeo")
-region = Rect2(352, 0, 176, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r46qb"]
-atlas = ExtResource("5_r3xeo")
-region = Rect2(528, 0, 176, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vgeca"]
-atlas = ExtResource("5_r3xeo")
-region = Rect2(704, 0, 176, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h8r8t"]
-atlas = ExtResource("5_r3xeo")
-region = Rect2(880, 0, 176, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8ah03"]
-atlas = ExtResource("5_r3xeo")
-region = Rect2(1056, 0, 176, 96)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_kx46h"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ob5k1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ahgye")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0ehog")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5aobc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_je87e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6k3rk")
-}],
-"loop": true,
-"name": &"death",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fswt3")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qiskj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lawj1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ws2c4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r46qb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vgeca")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h8r8t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8ah03")
-}],
-"loop": true,
-"name": &"moving",
-"speed": 5.0
-}]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7g4fb"]
 bg_color = Color(0, 0, 0, 1)
 
@@ -151,12 +35,11 @@ health = NodePath("Health")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(-0.109, -0.255)
 scale = Vector2(0.866848, 0.866848)
-polygon = PackedVector2Array(-21, 2, -13, 10, 13, 10, 17.4298, 4.90859, 17.4298, -3.16665, 9, -10, 3, -13, -4, -13, -10, -10, -17.203, -5.67822, -20, -4)
+polygon = PackedVector2Array(-21, 2, -13, 10, 13, 10, 17, 5, 16, -5, 9, -10, 3, -13, -4, -13, -10, -10, -17.203, -5.67822, -20, -4)
 
 [node name="PlayerSubmarineContainer" type="Node2D" parent="."]
 
 [node name="Burbuja" type="GPUParticles2D" parent="PlayerSubmarineContainer"]
-visible = false
 position = Vector2(-16, 0)
 amount = 30
 process_material = SubResource("ParticleProcessMaterial_eliwu")
@@ -164,7 +47,6 @@ texture = ExtResource("5_bw03k")
 lifetime = 3.0
 
 [node name="SubmarineFlashlight" parent="PlayerSubmarineContainer" instance=ExtResource("3_ycmfj")]
-visible = false
 
 [node name="PointLight2D" type="PointLight2D" parent="PlayerSubmarineContainer"]
 position = Vector2(0, -12)
@@ -173,10 +55,9 @@ color = Color(1, 0.517763, 0.455126, 1)
 energy = 0.8
 texture = ExtResource("4_4dgir")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerSubmarineContainer"]
+[node name="Sprite2D" type="Sprite2D" parent="PlayerSubmarineContainer"]
 scale = Vector2(0.257143, 0.29529)
-sprite_frames = SubResource("SpriteFrames_kx46h")
-animation = &"idle"
+texture = ExtResource("2_4j4ie")
 
 [node name="ProgressBar" type="ProgressBar" parent="PlayerSubmarineContainer"]
 offset_left = -23.0
@@ -191,6 +72,7 @@ value = 20.0
 show_percentage = false
 
 [node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+visible = false
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("7_uc5in")
