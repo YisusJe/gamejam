@@ -7,7 +7,7 @@ enum PlayerTypes {
 }
 
 @onready var background_theme = $"../AudioStreamPlayer"
-@export var current_player_type : PlayerTypes = PlayerTypes.DUCK;
+@export var current_player_type : PlayerTypes = PlayerTypes.SUBMARINE;
 @export var player_submarine : PlayerSubmarine;
 @export var player_duck : PlayerDuck;
 var can_change_character = false
@@ -19,6 +19,7 @@ func _ready():
 	current_player = player_submarine
 	background_theme.set_pitch_scale(1.0)
 	background_theme.play()
+	set_player(PlayerTypes.SUBMARINE)
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ChangePlayer") && (can_change_character || current_player == player_submarine):
