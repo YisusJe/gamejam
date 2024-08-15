@@ -10,7 +10,7 @@ enum PlayerTypes {
 @export var current_player_type : PlayerTypes = PlayerTypes.DUCK;
 @export var player_submarine : PlayerSubmarine;
 @export var player_duck : PlayerDuck;
-
+var can_change_character = false
 var current_player;
 
 func _ready():
@@ -21,11 +21,13 @@ func _ready():
 	background_theme.play()
 
 func _process(_delta):
-	if Input.is_action_just_pressed("ChangePlayer"):
+	if Input.is_action_just_pressed("ChangePlayer") && (can_change_character || current_player == player_submarine):
 		toggle_player()
 
 func toggle_player():
-	var new_player_type: int	
+	if (can_change_character):
+		pass
+	var new_player_type: int
 	if current_player_type == PlayerTypes.SUBMARINE:
 		new_player_type = PlayerTypes.DUCK
 	elif current_player_type == PlayerTypes.DUCK:
@@ -43,7 +45,7 @@ func set_pitch_background(player_type):
 		PlayerTypes.SUBMARINE:
 			background_theme.set_pitch_scale(1.0)
 		PlayerTypes.DUCK:
-			background_theme.set_pitch_scale(4.0)		
+			background_theme.set_pitch_scale(4.0)
 
 func set_player_speed(player_type, active):
 	match player_type:
@@ -69,3 +71,6 @@ func on_health_changed(diff):
 
 func on_health_depleted():
 	queue_free()
+
+func set_can_change_character(value : bool):
+	can_change_character = value

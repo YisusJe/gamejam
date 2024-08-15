@@ -1,13 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4fd7fjav1du4"]
+[gd_scene load_steps=11 format=3 uid="uid://b4fd7fjav1du4"]
 
 [ext_resource type="Script" path="res://submarine_inside.gd" id="1_aepql"]
 [ext_resource type="TileSet" uid="uid://4mrka1unxr8b" path="res://tiles.tres" id="1_f8oy6"]
 [ext_resource type="Texture2D" uid="uid://c3wiem37128kb" path="res://assets/backlight.png" id="2_rghc8"]
 [ext_resource type="Texture2D" uid="uid://bi42bo7rs2q4s" path="res://assets/Attacks/Flashlight/2d_lights_and_shadows_neutral_point_light.webp" id="3_oh4hl"]
 [ext_resource type="Script" path="res://LightRepair.gd" id="5_s4tc2"]
+[ext_resource type="Texture2D" uid="uid://b3guan1uyewu1" path="res://assets/yo.png" id="6_rhtq3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i2hef"]
 size = Vector2(21, 33)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mofby"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0m2t5"]
+bg_color = Color(0.182695, 0.615152, 1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5sn5"]
+size = Vector2(72.8542, 71.9597)
 
 [node name="SubmarineInside" type="Node2D"]
 script = ExtResource("1_aepql")
@@ -40,7 +49,7 @@ shadow_enabled = true
 texture = ExtResource("3_oh4hl")
 
 [node name="PointLight2D2" type="PointLight2D" parent="."]
-position = Vector2(55, 40)
+position = Vector2(53, 41)
 color = Color(1, 0.517647, 0.454902, 1)
 energy = 0.8
 shadow_enabled = true
@@ -74,8 +83,34 @@ text = "[E] to repair"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = 167.0
+offset_top = 70.0
+offset_right = 171.0
+offset_bottom = 97.0
+rotation = 1.5708
+theme_override_styles/background = SubResource("StyleBoxFlat_mofby")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0m2t5")
+max_value = 8.0
+fill_mode = 3
+show_percentage = false
+
+[node name="TimonSprite2D" type="Sprite2D" parent="."]
+position = Vector2(41, 39.75)
+scale = Vector2(0.685714, 0.673913)
+texture = ExtResource("6_rhtq3")
+
+[node name="TimonArea2D" type="Area2D" parent="TimonSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TimonSprite2D/TimonArea2D"]
+position = Vector2(0.0312462, 1.4879)
+shape = SubResource("RectangleShape2D_s5sn5")
+debug_color = Color(0.857803, 0.000721961, 0.881126, 0.42)
+
 [connection signal="area_entered" from="LightRepair" to="LightRepair" method="_on_area_entered"]
 [connection signal="body_entered" from="LightRepair" to="." method="_on_light_repair_body_entered"]
 [connection signal="body_entered" from="LightRepair" to="LightRepair" method="_on_body_entered"]
 [connection signal="body_exited" from="LightRepair" to="." method="_on_light_repair_body_exited"]
 [connection signal="body_exited" from="LightRepair" to="LightRepair" method="_on_body_exited"]
+[connection signal="body_entered" from="TimonSprite2D/TimonArea2D" to="." method="_on_timon_area_2d_body_entered"]
+[connection signal="body_exited" from="TimonSprite2D/TimonArea2D" to="." method="_on_timon_area_2d_body_exited"]
