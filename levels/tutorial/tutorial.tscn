@@ -11,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://ddjgp61wtj5wx" path="res://assets/Music/background_theme.mp3" id="9_2764o"]
 [ext_resource type="Texture2D" uid="uid://bi42bo7rs2q4s" path="res://assets/Attacks/Flashlight/2d_lights_and_shadows_neutral_point_light.webp" id="10_db3g6"]
 [ext_resource type="Script" path="res://levels/tutorial/tutorial.gd" id="11_likh1"]
-[ext_resource type="PackedScene" path="res://components/enemy/ajolote.tscn" id="12_84kst"]
+[ext_resource type="PackedScene" uid="uid://1s6lcyb7njg2" path="res://components/enemy/ajolote.tscn" id="12_84kst"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_3w002"]
 noise_type = 2
@@ -19,7 +19,7 @@ frequency = 0.0085
 fractal_octaves = 2
 fractal_lacunarity = 2.86
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rs5db"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_f1v3x"]
 seamless = true
 noise = SubResource("FastNoiseLite_3w002")
 
@@ -27,7 +27,7 @@ noise = SubResource("FastNoiseLite_3w002")
 frequency = 0.0405
 offset = Vector3(261.17, 312.93, 0)
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7xa4g"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_m7bki"]
 seamless = true
 noise = SubResource("FastNoiseLite_6xy1d")
 
@@ -44,8 +44,8 @@ shader_parameter/color_3_threshold = 0.31
 shader_parameter/wave_count = 20.0
 shader_parameter/speed = 3.0
 shader_parameter/height = 0.003
-shader_parameter/texture_normal = SubResource("NoiseTexture2D_rs5db")
-shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_7xa4g")
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_f1v3x")
+shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_m7bki")
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_uj65y"]
 
@@ -380,11 +380,12 @@ layer_1/tile_data = PackedInt32Array(1441800, 196608, 2, 1376264, 196608, 2, 131
 visible = false
 position = Vector2(943.75, 565.5)
 scale = Vector2(11.6638, 8.64189)
+energy = 0.79
 blend_mode = 1
 texture = ExtResource("3_8ply3")
 
 [node name="PlayerSubmarine" parent="." instance=ExtResource("4_q3apy")]
-position = Vector2(353, 413)
+position = Vector2(178, 451)
 
 [node name="Camera2D" type="Camera2D" parent="PlayerSubmarine"]
 position = Vector2(0, 2)
@@ -393,7 +394,7 @@ script = ExtResource("5_g4joq")
 random_strength = 20.0
 
 [node name="SubmarineInside" parent="." node_paths=PackedStringArray("player_submarine", "player_controller") instance=ExtResource("6_6vtns")]
-position = Vector2(738, -704)
+position = Vector2(3142, -583)
 player_submarine = NodePath("../PlayerSubmarine")
 player_controller = NodePath("../PlayerController")
 
@@ -402,7 +403,8 @@ player_submarine = NodePath("../PlayerSubmarine")
 player_duck = NodePath("../PlayerDuck")
 
 [node name="PlayerDuck" parent="." instance=ExtResource("8_aynd4")]
-position = Vector2(825, -611)
+z_index = 200
+position = Vector2(3445, -339)
 
 [node name="Camera2D" type="Camera2D" parent="PlayerDuck"]
 position = Vector2(0, 2)
