@@ -19,7 +19,6 @@ func _ready():
 	current_player = player_submarine
 	background_theme.set_pitch_scale(1.0)
 	background_theme.play()
-	set_player(PlayerTypes.SUBMARINE)
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ChangePlayer") && (can_change_character || current_player == player_submarine):
