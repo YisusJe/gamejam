@@ -2,7 +2,7 @@ class_name PlayerDuck
 extends CharacterBody2D
 
 @export var speed = 200
-@export var jumpVelocity = 500
+@export var jumpVelocity = 200
 @onready var camera = $Camera2D
 @onready var anim = $AnimationPlayer
 @onready var sprite = $Sprite2D
