@@ -155,6 +155,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
+z_index = 2000
 offset_left = 489.0
 offset_top = 202.0
 offset_right = 505.0
