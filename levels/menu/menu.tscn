@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bgcd4m3uvynu0"]
+[gd_scene load_steps=17 format=3 uid="uid://jowysvckgujv"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_87d3p"]
 [ext_resource type="Texture2D" uid="uid://b6l0ib0kofitl" path="res://assets/tiles/Rocaseverda.png" id="2_ffr2m"]
@@ -284,12 +284,6 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("5_dorqn")
 text = "Options"
 
-[node name="CreditsButton" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_dorqn")
-text = "Credits
-"
-
 [node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_dorqn")
@@ -309,4 +303,3 @@ shadow_enabled = true
 texture = ExtResource("5_slmgs")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]

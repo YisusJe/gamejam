@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://lida8xrotqy2" path="res://ui/text_box/Retro Gaming.ttf" id="2_p2yt0"]
 [ext_resource type="Script" path="res://ui/text_box/text_box.gd" id="3_6x3t0"]
 [ext_resource type="Shader" path="res://ui/text_box/feldespato.gdshader" id="3_lnpj1"]
-[ext_resource type="Texture2D" uid="uid://d3thjxyiq3hnb" path="res://assets/Player/FeldesPATO.png" id="3_vbgr3"]
+[ext_resource type="Texture2D" uid="uid://d3thjxyiq3hnb" path="res://assets/characters/Player/FeldesPATO.png" id="3_vbgr3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tn06c"]
 shader = ExtResource("3_lnpj1")

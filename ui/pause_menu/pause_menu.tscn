@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://fmi3u60l8svd"]
+
+[ext_resource type="Script" path="res://ui/pause_menu/pause_menu.gd" id="1_mcfcd"]
+[ext_resource type="Theme" uid="uid://i70ga7vejo7a" path="res://assets/tiles/menu_themes.tres" id="2_n1kog"]
+[ext_resource type="Texture2D" uid="uid://d3thjxyiq3hnb" path="res://assets/characters/Player/FeldesPATO.png" id="2_y6sac"]
+[ext_resource type="AudioStream" uid="uid://cic2yuba447ti" path="res://assets/audio/sfx/Player/cuack.mp3" id="3_jyi68"]
+[ext_resource type="FontFile" uid="uid://lida8xrotqy2" path="res://ui/text_box/Retro Gaming.ttf" id="3_oeydc"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mcfcd")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.0
+offset_top = -177.0
+offset_right = 197.0
+offset_bottom = 162.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_n1kog")
+theme_override_fonts/font = ExtResource("3_oeydc")
+text = "PAUSE"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_n1kog")
+text = "Resume
+"
+
+[node name="ExitButton" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_n1kog")
+text = "Exit Game
+"
+
+[node name="Sprite2D" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -76.0
+offset_right = 83.0
+grow_vertical = 0
+focus_mode = 0
+icon = ExtResource("2_y6sac")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Panel/Sprite2D"]
+stream = ExtResource("3_jyi68")
+volume_db = -15.0
+
+[connection signal="pressed" from="Panel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Panel/Sprite2D" to="." method="_on_sprite_2d_pressed"]

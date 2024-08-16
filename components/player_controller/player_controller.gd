@@ -24,6 +24,14 @@ func _process(_delta):
 	if Input.is_action_just_pressed("ChangePlayer") && (can_change_character || current_player == player_submarine):
 		toggle_player()
 
+func pause():
+	get_tree().paused = true
+	$pauseMenu.show()
+
+func unpause():
+	$pauseMenu.hide()
+	get_tree().paused = false
+
 func toggle_player():
 	if (can_change_character):
 		pass
@@ -62,7 +70,8 @@ func set_player(player_type):
 			current_player = player_submarine
 		PlayerTypes.DUCK:
 			current_player = player_duck
-	current_player.camera.make_current()
+	if current_player and current_player.camera:
+		current_player.camera.make_current()
 
 func on_health_changed(diff):
 	if	(diff > 0):
