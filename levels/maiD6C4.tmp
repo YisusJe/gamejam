@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://crlw3k3a468jq"]
+[gd_scene load_steps=22 format=3 uid="uid://crlw3k3a468jq"]
 
 [ext_resource type="Shader" path="res://background.gdshader" id="1_0od3m"]
+[ext_resource type="Script" path="res://levels/main.gd" id="1_tysqi"]
 [ext_resource type="TileSet" uid="uid://4mrka1unxr8b" path="res://tiles.tres" id="2_3w2rb"]
-[ext_resource type="PackedScene" uid="uid://co3covlr28jbv" path="res://levels/submarine_inside.tscn" id="3_72hp0"]
+[ext_resource type="PackedScene" uid="uid://b4fd7fjav1du4" path="res://levels/submarine_inside.tscn" id="3_72hp0"]
 [ext_resource type="PackedScene" uid="uid://dn6157vjvra5p" path="res://components/player_duck/player_duck.tscn" id="4_g1tum"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="5_hri12"]
 [ext_resource type="PackedScene" uid="uid://d31os1y8ajbf7" path="res://components/player_controller/player_controller.tscn" id="6_qrjgv"]
@@ -13,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://srq38s8ks6vq" path="res://components/collectibles/collectibles.tscn" id="11_ljvet"]
 [ext_resource type="Script" path="res://scripts/BoxCont.gd" id="11_qiv5d"]
 [ext_resource type="Texture2D" uid="uid://f7scqhcwvnv3" path="res://assets/Caja-Suministros.png" id="12_fjvft"]
+[ext_resource type="FontFile" uid="uid://lida8xrotqy2" path="res://ui/text_box/Retro Gaming.ttf" id="14_mf1md"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_frrhv"]
 noise_type = 2
@@ -51,6 +53,7 @@ shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_nupg8")
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_05srg"]
 
 [node name="Level 0" type="Node2D"]
+script = ExtResource("1_tysqi")
 
 [node name="Fondo" type="Sprite2D" parent="."]
 texture_repeat = 1
@@ -156,5 +159,21 @@ offset_left = 109.0
 offset_top = 33.0
 offset_right = 162.0
 offset_bottom = 91.0
+theme_override_fonts/font = ExtResource("14_mf1md")
 theme_override_font_sizes/font_size = 42
 text = "10"
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="PauseLabel" type="Label" parent="CanvasLayer2"]
+visible = false
+offset_left = 944.0
+offset_top = 491.0
+offset_right = 1100.0
+offset_bottom = 549.0
+theme_override_fonts/font = ExtResource("14_mf1md")
+theme_override_font_sizes/font_size = 34
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true

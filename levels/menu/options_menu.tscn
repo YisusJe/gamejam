@@ -1,11 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://bgcd4m3uvynu0"]
+[gd_scene load_steps=17 format=3 uid="uid://ci2sipbsa7ecn"]
 
-[ext_resource type="Script" path="res://scripts/menu.gd" id="1_87d3p"]
-[ext_resource type="Texture2D" uid="uid://b6l0ib0kofitl" path="res://assets/tiles/Rocaseverda.png" id="2_ffr2m"]
-[ext_resource type="Shader" path="res://assets/background.gdshader" id="2_pa4kx"]
-[ext_resource type="Texture2D" uid="uid://c3wiem37128kb" path="res://assets/backlight.png" id="4_n8oed"]
-[ext_resource type="FontFile" uid="uid://lida8xrotqy2" path="res://ui/text_box/Retro Gaming.ttf" id="5_dorqn"]
-[ext_resource type="Texture2D" uid="uid://bi42bo7rs2q4s" path="res://assets/Attacks/Flashlight/2d_lights_and_shadows_neutral_point_light.webp" id="5_slmgs"]
+[ext_resource type="Script" path="res://scripts/options_menu.gd" id="1_gflda"]
+[ext_resource type="Shader" path="res://assets/background.gdshader" id="2_xgsht"]
+[ext_resource type="Texture2D" uid="uid://b6l0ib0kofitl" path="res://assets/tiles/Rocaseverda.png" id="3_vrwg1"]
+[ext_resource type="Texture2D" uid="uid://c3wiem37128kb" path="res://assets/backlight.png" id="4_h37o3"]
+[ext_resource type="Texture2D" uid="uid://bi42bo7rs2q4s" path="res://assets/Attacks/Flashlight/2d_lights_and_shadows_neutral_point_light.webp" id="5_0jiom"]
+[ext_resource type="FontFile" uid="uid://lida8xrotqy2" path="res://ui/text_box/Retro Gaming.ttf" id="5_urbv1"]
 
 [sub_resource type="Theme" id="Theme_28rbe"]
 Button/font_sizes/font_size = 22
@@ -29,7 +29,7 @@ seamless = true
 noise = SubResource("FastNoiseLite_p4deb")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yrc8e"]
-shader = ExtResource("2_pa4kx")
+shader = ExtResource("2_xgsht")
 shader_parameter/color_1 = Color(0, 0, 0, 1)
 shader_parameter/color_2 = Color(0.0837919, 0.0762824, 0.218781, 1)
 shader_parameter/color_3 = Color(0.180392, 0.137255, 0.423529, 1)
@@ -47,7 +47,7 @@ shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_o547p")
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_673a1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j2012"]
-texture = ExtResource("2_ffr2m")
+texture = ExtResource("3_vrwg1")
 1:1/0 = 0
 1:1/0/terrain_set = 0
 1:1/0/terrains_peering_bit/bottom_left_corner = 0
@@ -129,7 +129,7 @@ texture = ExtResource("2_ffr2m")
 4:4/0/terrains_peering_bit/top_left_corner = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t5duc"]
-texture = ExtResource("2_ffr2m")
+texture = ExtResource("3_vrwg1")
 1:1/0 = 0
 1:1/0/terrain_set = 0
 1:1/0/terrains_peering_bit/bottom_left_corner = 1
@@ -220,7 +220,7 @@ terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 sources/4 = SubResource("TileSetAtlasSource_j2012")
 sources/5 = SubResource("TileSetAtlasSource_t5duc")
 
-[node name="Menu" type="Control" node_paths=PackedStringArray("start_button", "exit_button")]
+[node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -228,9 +228,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_28rbe")
-script = ExtResource("1_87d3p")
-start_button = NodePath("MarginContainer/VBoxContainer/StartButton")
-exit_button = NodePath("MarginContainer/VBoxContainer/ExitButton")
+script = ExtResource("1_gflda")
 
 [node name="Fondo" type="Sprite2D" parent="."]
 texture_repeat = 1
@@ -253,7 +251,7 @@ position = Vector2(979, 594)
 energy = 0.74
 blend_mode = 1
 range_z_min = 0
-texture = ExtResource("4_n8oed")
+texture = ExtResource("4_h37o3")
 texture_scale = 25.23
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -274,39 +272,29 @@ theme_override_constants/margin_bottom = 30
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Volume" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_dorqn")
-text = "Play"
-
-[node name="OptionsButton" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_dorqn")
-text = "Options"
-
-[node name="CreditsButton" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_dorqn")
-text = "Credits
+theme_override_fonts/font = ExtResource("5_urbv1")
+text = "Volume
 "
 
-[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_dorqn")
-text = "Exit"
+theme_override_fonts/font = ExtResource("5_urbv1")
+text = "Back to title
+"
 
 [node name="PointLight2D3" type="PointLight2D" parent="."]
 position = Vector2(459, 26)
 scale = Vector2(8.37698, 7.87015)
 color = Color(0.945738, 0.734905, 0.694208, 1)
-texture = ExtResource("5_slmgs")
+texture = ExtResource("5_0jiom")
 
 [node name="PointLight2D2" type="PointLight2D" parent="."]
-position = Vector2(1099, 390)
+position = Vector2(1099, 408)
 scale = Vector2(7.98877, 7.2168)
 color = Color(0.945738, 0.734905, 0.694208, 1)
 shadow_enabled = true
-texture = ExtResource("5_slmgs")
+texture = ExtResource("5_0jiom")
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
