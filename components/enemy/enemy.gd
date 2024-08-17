@@ -233,7 +233,7 @@ var previous_rays = []
 # 		draw_line(Vector2(0.0, 0.0), previous_best_ray * 100, Color.RED, 1.0)
 
 func _physics_process(delta):
-	print(Vector2(1.0, 1.0).normalized().x)
+	#print(Vector2(1.0, 1.0).normalized().x)
 
 	var direction_to_player = position.direction_to(player_submarine.position)
 	var distance_to_player = (player_submarine.position - position).length()
