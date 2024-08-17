@@ -14,7 +14,7 @@
 [ext_resource type="Script" path="res://scripts/BoxCont.gd" id="12_fduyv"]
 [ext_resource type="Texture2D" uid="uid://f7scqhcwvnv3" path="res://assets/Caja-Suministros.png" id="13_jxukn"]
 [ext_resource type="FontFile" uid="uid://lida8xrotqy2" path="res://ui/text_box/Retro Gaming.ttf" id="14_p8jab"]
-[ext_resource type="PackedScene" uid="uid://c15c5irpbf2wg" path="res://components/pause_menu/pause_menu.tscn" id="15_1avjp"]
+[ext_resource type="PackedScene" uid="uid://fmi3u60l8svd" path="res://ui/pause_menu/pause_menu.tscn" id="15_1avjp"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_frrhv"]
 noise_type = 2
